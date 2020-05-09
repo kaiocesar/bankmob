@@ -6,6 +6,6 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /core
 WORKDIR /core
 
-ADD requirements.txt /core/
-RUN pip install --upgrade pip && pip install -r requirements.txt
+ADD requeriments.txt /core/
+RUN pip install --upgrade pip && pip install -r requeriments.txt
 ADD . /core/
