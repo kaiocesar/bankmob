@@ -3,15 +3,17 @@ version: '3.7'
 services:
         db:
                 env_file: ./.env
-                image: postgres:11
+                image: postgres:12.0-alpine
                 environment:
-                        - POSTGRES_HOST_AUTH_METHOD=trust
+                        - POSTGRES_USER=${SQL_USER}
+                        - POSTGRES_PASSWORD=${SQL_PASSWORD}
+                        - POSTGRES_DB=${SQL_NAME}
                 volumes:
                         - postgres_data:/var/lib/postgresql/data/
         web:
                 env_file: ./.env
                 build: .
-                command: python /core/manage.py runserver 0.0.0.0:8000
+                command: python manage.py runserver 0.0.0.0:8000
                 volumes:
                         - .:/core
                 ports:
