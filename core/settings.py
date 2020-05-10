@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'aloe',
+    'django_nose',
+    'aloe_django',
     'rest_framework',
     'game.apps.GameConfig' 
 ]
@@ -105,3 +106,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+GHERKIN_TEST_CLASS = 'aloe_django.TestCase'

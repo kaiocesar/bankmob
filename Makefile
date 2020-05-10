@@ -8,3 +8,6 @@ dw:
 
 mig:
 	docker-compose exec web python manage.py migrate --noinput
+
+ter:
+	docker exec -it bankmob_web_1 /bin/sh

@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
         web:
+                image: bankmob_web
                 env_file: ./.env
                 build: .
                 command: python manage.py runserver 0.0.0.0:8000
