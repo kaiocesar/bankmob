@@ -18,7 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'game.apps.GameConfig'
+    'aloe',
+    'rest_framework',
+    'game.apps.GameConfig' 
 ]
 
 MIDDLEWARE = [
