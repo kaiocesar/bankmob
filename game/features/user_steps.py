@@ -5,17 +5,23 @@ from aloe_django.steps.models import get_model
 from django.contrib.auth.models import User
 from rest_framework.test import APIClient
 
+@before.each_feature
 def before_each_feature(feature):
-    pass
+    world.client = APIClient()
 
+@step('I empty the "([^"]+)" table')
 def step_empty_table(self, model_name):
-    pass
+    get_model(model_name).objects.all().delete()
 
+@step("I create the following users:")
 def step_create_users(self):
-    pass
+    for user in guess_types(self.hashes):
+        User.objects.create_user(**user)
 
+@step('I log in with username "([^"]+)" and password "([^"]+)"')
 def step_log_in(self, username, password):
-    pass
+    world.is_logged_in = world.client.login(username=username, password=password)
 
+@step("I am logged in")
 def step_confirm_log_in(self):
-    pass
+    assert world.is_logged_in
