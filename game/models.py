@@ -6,3 +6,5 @@ class Player(models.Model):
     points = models.IntegerField(default=300)
     steps  = models.IntegerField(default=0)
     
+    def __str__(self):
+        self.user
