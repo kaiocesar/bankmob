@@ -110,3 +110,8 @@ STATIC_URL = '/static/'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 GHERKIN_TEST_CLASS = 'aloe_django.TestCase'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
