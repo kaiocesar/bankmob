@@ -21,8 +21,24 @@ INSTALLED_APPS = [
     'django_nose',
     'aloe_django',
     'rest_framework',
-    'game.apps.GameConfig' 
+    'game',
+    'channels',
 ]
+
+ASGI_APPLICATION = 'core.routing.application'
+
+AUTH_USER_MODEL = 'game.User'
+
+REDIS_URL = 'redis://{0}:{1}'.format(os.environ.get('REDIS_URL', 'localhost'), os.environ.get('REDIS_PORT', '6379'))
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [REDIS_URL]
+        },
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
