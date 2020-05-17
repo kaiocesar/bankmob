@@ -1,13 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
 from game import views
 
-router = routers.DefaultRouter()
-router.register(r'players', views.PlayerViewSet, basename='PlayerViewSet')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('players', views.PlayerList.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
 ]
