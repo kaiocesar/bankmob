@@ -10,5 +10,6 @@ class Player(models.Model):
     steps  = models.IntegerField(default=0)
     
     def __str__(self):
-        self.user
+       return '{} - {} - {}'.format(self.id, self.points, self.steps)
 
+# class Board(models.Model):

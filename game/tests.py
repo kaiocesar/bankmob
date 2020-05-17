@@ -1,11 +1,11 @@
 from django.test import TestCase
-from game.models import Player
-from django.contrib.auth.models import User
 from django.test import Client
+from .models import User, Player
+
 
 class PlayerTestCase(TestCase):
     def setUp(self):
-        self.client_http = c = Client()
+        self.client_http = Client()
 
         self.fulaninho = User.objects.create(
             username='fulaninho@email.com', 
