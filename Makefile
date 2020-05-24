@@ -14,3 +14,6 @@ mig:
 
 ter:
 	docker exec -it bankmob_web_1 /bin/bash
+
+lint:
+	docker-compose run web sh -c "flake8"
